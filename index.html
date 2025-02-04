@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0;url=mykiteapp://callback?request_token=XYZ">
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const requestToken = params.get("request_token");
+
+        if (requestToken) {
+            window.location.href = "mykiteapp://callback?request_token=" + requestToken;
+        } else {
+            document.write("<p>Error: No request token received.</p>");
+        }
+    </script>
 </head>
 <body>
-    <p>Redirecting to app...</p>
+    <p>Redirecting to the app...</p>
 </body>
 </html>
